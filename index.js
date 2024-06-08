@@ -14,8 +14,11 @@ app.get("/", (req, res) => {
 });
 
 app.post("/check", (req, res) => {
-  console.log("Hello");
-  res.sendFile(__dirname + "/public/secret.html");
+  if (req.body.password === "ILoveProgramming") {
+    res.sendFile(__dirname + "/public/secret.html");
+  } else {
+    res.sendFile(__dirname + "/public/index.html");
+  }
 });
 
 app.listen(port, () => {
